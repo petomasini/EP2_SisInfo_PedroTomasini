@@ -40,7 +40,7 @@ def make(github_url="",render_url="",output=OUTPUT):
     capture_notice=(CAPTURAS / "ORIGEM_DAS_CAPTURAS.txt").read_text(encoding="utf-8")
     preview = capture_notice.startswith("PREVIA")
     src_sql=json.loads((DOC / "resultados.json").read_text(encoding="utf-8"))
-    graph=subprocess.check_output(["git","log","--graph","--oneline","--all","--decorate","-8"],cwd=ROOT,text=True)
+    graph=subprocess.check_output(["git","log","--graph","--oneline","--all","--decorate","-15"],cwd=ROOT,text=True)
     names=["Todos os posts em ordem decrescente de data", "Comentários do post selecionado", "Comentários com colunas do post e post_date", "Categoria com todas as colunas dos posts", "Categorias que possuem dois ou mais posts"]
     sql_html=""
     for idx,(name,data) in enumerate(zip(names,src_sql),1):
