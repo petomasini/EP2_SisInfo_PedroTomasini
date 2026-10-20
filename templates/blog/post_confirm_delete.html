@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Remover artigo{% endblock %}
+{% block content %}
+  <a class="breadcrumb" href="{% url 'post_detail' post.pk %}">&larr; Voltar ao artigo</a>
+  <div class="form-card danger-card"><p class="eyebrow">CONFIRMAÇÃO NECESSÁRIA</p><h1>Remover este artigo?</h1>
+    <p>Você está prestes a remover <strong>{{ post.title }}</strong>. Esta ação não pode ser desfeita.</p>
+    <form method="post">{% csrf_token %}<div class="form-actions"><button class="button button-danger" type="submit">Sim, remover artigo</button><a class="button-secondary" href="{% url 'post_detail' post.pk %}">Cancelar</a></div></form>
+  </div>
+{% endblock %}

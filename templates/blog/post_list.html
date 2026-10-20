@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}{% if category %}{{ category.name }}{% else %}Artigos{% endif %}{% endblock %}
+{% block content %}
+  <section class="hero">
+    <p class="eyebrow">BLOG / TECNOLOGIA / IDEIAS</p>
+    <h1>{% if category %}{{ category.name }}{% else %}Novidades que merecem atenção.{% endif %}</h1>
+    <p class="hero-summary">{% if category %}{{ category.description }}{% else %}Reflexões práticas sobre inovação, segurança e desenvolvimento digital.{% endif %}</p>
+    <div class="hero-actions"><a class="button" href="{% url 'post_create' %}">+ Escrever artigo</a></div>
+  </section>
+  <div class="section-heading"><h2>{% if category %}Artigos nesta categoria{% else %}Artigos recentes{% endif %}</h2><span>{{ posts|length }} publicação(ões)</span></div>
+  <section class="post-grid">
+  {% for post in posts %}
+    <article class="post-card">
+      <p class="meta">{{ post.published_at|date:'d/m/Y' }} &middot; LEITURA</p>
+      <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
+      <p class="card-summary">{{ post.content|striptags|truncatechars:175 }}</p>
+      <a class="read-link" href="{% url 'post_detail' post.pk %}">Ler artigo &rarr;</a>
+    </article>
+  {% empty %}
+    <div class="empty-state">Ainda não há artigos nesta seleção. <a href="{% url 'post_create' %}">Criar o primeiro.</a></div>
+  {% endfor %}
+  </section>
+{% endblock %}

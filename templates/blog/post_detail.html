@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+  <a class="breadcrumb" href="{% url 'post_list' %}">&larr; Todos os artigos</a>
+  <article class="article">
+    <div class="article-heading">
+      <p class="eyebrow">PUBLICADO EM {{ post.published_at|date:'d/m/Y H:i' }}</p>
+      <h1>{{ post.title }}</h1>
+      <div class="article-actions"><a href="{% url 'post_update' post.pk %}">Editar post</a><a class="danger-link" href="{% url 'post_delete' post.pk %}">Remover post</a></div>
+    </div>
+    <div class="article-body">{{ post.content|safe }}</div>
+  </article>
+{% endblock %}

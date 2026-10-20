@@ -1,0 +1,12 @@
+# O arquivo SQLite e entregue separadamente pelo Moodle
+/db.sqlite3
+*.sqlite3
+__pycache__/
+*.py[cod]
+.env
+.venv/
+venv/
+staticfiles/
+*.log
+.pytest_cache/
+.DS_Store
