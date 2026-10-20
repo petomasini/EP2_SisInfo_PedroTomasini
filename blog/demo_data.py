@@ -1,0 +1,36 @@
+"""Fixtures do trabalho, acessíveis mesmo sem carregar Django."""
+from datetime import datetime, timezone
+
+CATEGORIES = [
+    ("Inteligência Artificial", "Aplicações de IA, automação e pensamento crítico."),
+    ("Segurança Digital", "Boas práticas de privacidade, proteção e identidade digital."),
+    ("Desenvolvimento Web", "Práticas modernas para construir experiências na web."),
+]
+POSTS = [
+    ("IA generativa no cotidiano", """
+<p>Ferramentas de inteligência artificial já fazem parte de tarefas como organizar ideias, estudar, programar e resumir documentos.</p>
+<h2>O que muda no dia a dia?</h2>
+<p>A velocidade aumenta, mas a revisão humana continua essencial. Respostas produzidas automaticamente podem conter erros e precisam ser verificadas.</p>
+<h2>Como começar com responsabilidade</h2>
+<ul><li>Defina claramente o objetivo.</li><li>Confira fatos importantes.</li><li>Não compartilhe dados sensíveis sem autorização.</li></ul>
+<p>O uso produtivo de IA combina experimentação, transparência e senso crítico.</p>
+""".strip(), datetime(2026, 10, 18, 18, 0, tzinfo=timezone.utc), ["Inteligência Artificial", "Desenvolvimento Web"]),
+    ("Segurança digital: hábitos que protegem", """
+<p>A proteção de contas começa com decisões simples e consistentes. Senhas reutilizadas e links suspeitos continuam sendo riscos frequentes.</p>
+<h2>Checklist de proteção</h2>
+<ul><li>Use senhas únicas e extensas.</li><li>Ative autenticação de múltiplos fatores.</li><li>Mantenha aplicativos atualizados.</li></ul>
+<p>Também é importante revisar permissões de aplicativos e reconhecer tentativas de phishing.</p>
+""".strip(), datetime(2026, 10, 16, 17, 30, tzinfo=timezone.utc), ["Segurança Digital", "Desenvolvimento Web"]),
+    ("Como criar interfaces mais acessíveis", """
+<p>Acessibilidade significa projetar para pessoas com necessidades, dispositivos e contextos diferentes.</p>
+<h2>Boas práticas</h2>
+<p>Use HTML semântico, rótulos claros para formulários, contraste adequado e navegação por teclado.</p>
+<p>Testar com usuários reais e tecnologias assistivas melhora a experiência de todos.</p>
+""".strip(), datetime(2026, 10, 14, 15, 15, tzinfo=timezone.utc), ["Desenvolvimento Web"]),
+]
+COMMENTS = [
+    ("IA generativa no cotidiano", "ana_demo", "Ótimo resumo! A verificação das fontes faz toda a diferença.", datetime(2026, 10, 19, 10, 0, tzinfo=timezone.utc)),
+    ("IA generativa no cotidiano", "bruno_demo", "Gostei das recomendações para uso responsável.", datetime(2026, 10, 18, 22, 30, tzinfo=timezone.utc)),
+    ("Segurança digital: hábitos que protegem", "bruno_demo", "A autenticação em duas etapas já virou hábito por aqui.", datetime(2026, 10, 19, 12, 0, tzinfo=timezone.utc)),
+    ("Segurança digital: hábitos que protegem", "ana_demo", "Um gerenciador de senhas também ajuda bastante.", datetime(2026, 10, 17, 11, 15, tzinfo=timezone.utc)),
+]
