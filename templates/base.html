@@ -22,6 +22,7 @@
           <form action="{% url 'logout' %}" method="post" class="inline-form">{% csrf_token %}<button class="nav-logout" type="submit">Sair</button></form>
         {% else %}
           <a href="{% url 'login' %}">Entrar</a>
+          <a href="{% url 'signup' %}">Cadastrar</a>
         {% endif %}
       </nav>
     </div>

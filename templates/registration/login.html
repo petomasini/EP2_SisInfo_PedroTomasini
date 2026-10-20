@@ -6,5 +6,5 @@
     {% if form.errors %}<p class="form-error">Usuário ou senha incorretos.</p>{% endif %}
     {{ form.as_p }}
     <div class="form-actions"><button class="button" type="submit">Entrar</button></div>
-  </form></div>
+  </form><p>Não tem conta? <a class="read-link" href="{% url 'signup' %}">Cadastre-se</a>.</p></div>
 {% endblock %}

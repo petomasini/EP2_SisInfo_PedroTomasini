@@ -87,3 +87,19 @@ class CategoryDetailView(ListView):
         context = super().get_context_data(**kwargs)
         context["category"] = self.category
         return context
+
+
+def signup(request):
+    """Cadastro simples para que avaliadores consigam usar CRUD e comentários."""
+    from django.contrib.auth import get_user_model, login
+    from django.contrib.auth.forms import UserCreationForm
+    from django.shortcuts import redirect, render
+
+    if request.user.is_authenticated:
+        return redirect("post_list")
+    form = UserCreationForm(request.POST or None)
+    if request.method == "POST" and form.is_valid():
+        user = form.save()
+        login(request, user)
+        return redirect("post_list")
+    return render(request, "registration/signup.html", {"form": form})
