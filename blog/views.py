@@ -91,7 +91,7 @@ class CategoryDetailView(ListView):
 
 def signup(request):
     """Cadastro simples para que avaliadores consigam usar CRUD e comentários."""
-    from django.contrib.auth import get_user_model, login
+    from django.contrib.auth import login
     from django.contrib.auth.forms import UserCreationForm
     from django.shortcuts import redirect, render
 

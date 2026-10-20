@@ -1,4 +1,5 @@
 """Testes de integração para rodar com `python manage.py test`."""
+from datetime import timedelta
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
@@ -59,6 +60,6 @@ class BlogTests(TestCase):
         self.assertContains(self.client.get(reverse("post_detail", args=[self.post.pk])), "Mais uma observação")
 
     def test_ordenacao_comentarios(self):
-        Comment.objects.create(post=self.post, author=self.user, text="Comentário mais recente", published_at=timezone.now() + timezone.timedelta(minutes=10))
+        Comment.objects.create(post=self.post, author=self.user, text="Comentário mais recente", published_at=timezone.now() + timedelta(minutes=10))
         response = self.client.get(reverse("post_detail", args=[self.post.pk]))
         self.assertEqual(response.context["comments"][0].text, "Comentário mais recente")
