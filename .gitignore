@@ -10,3 +10,6 @@ staticfiles/
 *.log
 .pytest_cache/
 .DS_Store
+
+# Capturas geradas localmente para atualizar o relatorio
+/CAPTURAS_PARA_RELATORIO.zip
