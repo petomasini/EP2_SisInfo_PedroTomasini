@@ -10,4 +10,18 @@
     </div>
     <div class="article-body">{{ post.content|safe }}</div>
   </article>
+  <section class="comment-section" id="comentarios">
+    <h2>Comentários</h2>
+    {% for comment in comments %}
+      <div class="comment"><span class="comment-author">{{ comment.author.username }}</span><span class="comment-date">{{ comment.published_at|date:'d/m/Y H:i' }}</span><p class="comment-text">{{ comment.text|linebreaksbr }}</p></div>
+    {% empty %}<p>Este artigo ainda não possui comentários.</p>{% endfor %}
+    <p><a class="read-link" href="{% url 'comment_create' post.pk %}">Abrir página para comentar &rarr;</a></p>
+    {% if user.is_authenticated %}
+      <div class="inline-comment-form"><h3>Comente diretamente aqui</h3>
+        <form method="post" action="{% url 'comment_create' post.pk %}">{% csrf_token %}
+          {{ comment_form.text }}<div class="form-actions"><button class="button" type="submit">Publicar comentário</button></div>
+        </form>
+      </div>
+    {% else %}<p><a class="read-link" href="{% url 'login' %}?next={% url 'post_detail' post.pk %}">Entre para publicar um comentário</a>.</p>{% endif %}
+  </section>
 {% endblock %}
