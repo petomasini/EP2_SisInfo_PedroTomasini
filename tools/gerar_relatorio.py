@@ -91,12 +91,12 @@ a{{color:#0a7670;word-break:break-word}}.cover{{height:244mm;padding:30mm 2mm 20
 {figure('remocao_post.png','Confirmação antes da exclusão de um post.','Confirmar remoção',preview)}
 <div class="section-break"></div><h3>4.2. Parte 2 &mdash; Comentários em posts</h3>
 <p>O modelo <code>Comment</code> guarda o texto, a data da postagem e as referências a <code>Post</code> e ao usuário do Django. Os comentários são exibidos na página individual em ordem decrescente de data. A criação é possível tanto diretamente na página do post quanto em uma página própria, por usuários autenticados.</p>
-{code_file('Listagem de views após a implementação dos comentários', 'views_part2.py', 'branch comments, antes do primeiro merge')}
+{code_file('Listagem de views após a implementação dos comentários', 'views_part2.py', 'referência à etapa comments, com correção posterior do método POST')}
 {figure('post_com_comentarios.png','Publicação individual exibindo comentários associados, mais recentes primeiro.','Post com comentários',preview)}
 {figure('criacao_comentario.png','Formulário de criação de comentário com vínculo automático ao usuário logado.','Criar comentário',preview)}
 <div class="section-break"></div><h3>4.3. Parte 3 &mdash; Categorias</h3>
 <p>Foi criado o modelo <code>Category</code> com nome e descrição. A relação entre posts e categorias é muitos-para-muitos. A listagem de posts por categoria reutiliza <code>blog/post_list.html</code>, agora exibindo o nome e a descrição da categoria selecionada. O administrador permite a manutenção de categorias.</p>
-{code_file('Listagem de views após a implementação das categorias', 'views_part3.py', 'branch categories, antes do segundo merge')}
+{code_file('Listagem de views após a implementação das categorias', 'views_part3.py', 'referência à etapa categories, com correção posterior do método POST')}
 {figure('post_com_categorias.png','Post individual com links para suas categorias associadas.','Post com categorias',preview)}
 {figure('categoria_individual.png','Página da categoria Desenvolvimento Web, listando os posts correspondentes.','Categoria individual',preview)}
 <h3>4.3.1. Publicação do projeto</h3><div class="link-block">{urls}</div><p class="tiny">O projeto contém um <code>render.yaml</code> para implantação, uma configuração PostgreSQL para uso remoto e um arquivo <code>.gitignore</code> que exclui <code>db.sqlite3</code> e <code>__pycache__/</code>.</p>

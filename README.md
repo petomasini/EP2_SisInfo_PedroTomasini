@@ -79,9 +79,13 @@ O comando de inicialização usa `migrate` e `seed_demo`, que pode ser executado
 - O SQLite local não é indicado para armazenamento persistente em hospedagem com filesystem efêmero; por isso Render usa PostgreSQL.
 - O banco entregue contém usuários demonstrativos com senhas desabilitadas, sem credenciais expostas.
 
+## Correções de compatibilidade e testes
+
+Após a primeira execução no Windows, foram corrigidas duas falhas identificadas nos testes: (1) a view `CommentCreateView` não deve usar o atributo `self.post`, pois isso substitui o método HTTP `post()` da classe; (2) os testes locais utilizam o backend `StaticFilesStorage`, dispensando o manifesto de `collectstatic`. A configuração de produção mantém `CompressedManifestStaticFilesStorage` com `DEBUG=False`. O script Windows força `DJANGO_DEBUG=1` apenas durante a validação local.
+
 ## Validação automatizada de baixa intervenção
 
-O ZIP de distribuição inclui `db.sqlite3` como arquivo **não rastreado no Git**. Em Windows, basta extrair o ZIP e executar `INICIAR_AQUI_WINDOWS.bat` para instalar dependências em `.venv`, aplicar migrações, executar os testes e gerar capturas reais das páginas com o Chrome/Chromium. Linux/macOS: execute `bash INICIAR_AQUI_LINUX_MAC.sh`.
+O ZIP de distribuição inclui `db.sqlite3` como arquivo **não rastreado no Git**. Em Windows, basta extrair o ZIP e executar `INICIAR_AQUI_WINDOWS.bat` para instalar dependências em `.venv`, aplicar migrações, executar os testes, gerar capturas reais das páginas com o Chrome/Chromium e criar o pacote `CAPTURAS_PARA_RELATORIO.zip` para enviar aqui. Linux/macOS: execute `bash INICIAR_AQUI_LINUX_MAC.sh`.
 
 Se Chrome não estiver disponível para gerar capturas, os comandos `python manage.py check`, `python manage.py migrate` e `python manage.py test` ainda permitem verificar o código. O relatório atual identifica as imagens de pré-visualização como prévias estáticas até que as capturas reais sejam produzidas.
 
