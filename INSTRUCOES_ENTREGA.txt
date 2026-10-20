@@ -1,53 +1,41 @@
 RADAR TECH - SEGUNDA ENTREGA DE LABORATORIO DJANGO
 =================================================
 
-ARQUIVOS PARA O MOODLE:
-  1. relatorio_segunda_entrega_django.pdf
+SITUACAO VERIFICADA
+  - Sete testes automatizados Django passaram no Windows (7/7).
+  - Nove paginas retornaram HTTP 200 e foram capturadas a partir das views Django.
+  - Cinco consultas SQLite foram executadas e documentadas visualmente.
+  - Banco db.sqlite3 pronto com posts, categorias, comentarios e usuarios.
+  - PDF atualizado com as capturas reais do Django.
+  - Historico Git inclui 3 commits do CRUD e merges de comments e categories.
+
+ENTREGAR NO MOODLE
+  1. relatorio_segunda_entrega_django_ATUALIZADO.pdf (gerado fora da pasta de codigo)
   2. db.sqlite3
+  3. Links para GitHub e Render no PDF OU nos comentarios da entrega do Moodle.
 
-PARA GITHUB / RENDER:
-  radar_tech_projeto_com_git.zip - projeto completo incluindo .git e historico.
+GITHUB (etapa ainda pendente)
+  1. No GitHub, crie um repositorio PUBLICO VAZIO, por exemplo radar-tech-blog.
+  2. Abra o terminal na pasta radar-tecnologia do ZIP atualizado.
+  3. Se o Git estiver instalado, rode os comandos a seguir, substituindo SEU_USUARIO:
+     git remote add origin https://github.com/SEU_USUARIO/radar-tech-blog.git
+     git push -u origin main
+     git push origin comments categories
+  4. Se 'origin' ja existir, use:
+     git remote set-url origin https://github.com/SEU_USUARIO/radar-tech-blog.git
+  5. Nao rode 'git init' nem recrie os branches: o historico ja esta no ZIP.
 
-O QUE JA FOI FEITO:
-  - Codigo Django de todos os requisitos.
-  - Tres commits da Parte 1 com FBV sem form, FBV com form e CBV genericas.
-  - Branch comments + merge e branch categories + merge.
-  - Banco SQLite populado, integridade checada, um superusuario local criado.
-  - Cinco SQLs executados e suas evidencias visuais geradas.
-  - PDF provisório de 21 paginas incluindo imagens dos templates.
+RENDER (etapa ainda pendente)
+  1. Entre em render.com e conecte a sua conta GitHub.
+  2. Escolha Blueprints > New Blueprint Instance e selecione o repositorio.
+  3. Confirme a criacao dos servicos definidos em render.yaml (Web + PostgreSQL).
+  4. Confira o funcionamento da URL publica apos o deploy.
+  5. Copie os dois links (GitHub e Render) para os comentarios no Moodle.
 
-IMPORTANTE: falta executar o Django em um computador com rede para instalar
-as dependencias, obter capturas reais e confirmar testes. As imagens no PDF
-atual sao declaradas como previas - NAO sao capturas do Django em execucao.
-Nao envie como relatorio definitivo antes desta verificacao.
+OBSERVACOES
+  - db.sqlite3 e intencionalmente ignorado pelo Git: anexe no Moodle.
+  - O acesso do superusuario LOCAL foi disponibilizado em arquivo separado.
+  - NUNCA coloque senhas, tokens ou credenciais no GitHub ou em comentarios do Moodle.
+  - O Render usa PostgreSQL; o banco SQLite fica apenas para uso local/entrega.
 
-ETAPA MINIMA PARA VOCE (Windows):
-  1. Extraia o arquivo ZIP, mantendo todos os arquivos, inclusive a pasta .git.
-  2. Confirme que o arquivo db.sqlite3 esta na raiz do projeto (incluido no ZIP).
-  3. Execute INICIAR_AQUI_WINDOWS.bat (requer Python e Chrome instalados).
-  4. Envie a pasta docs/capturas ao ChatGPT para substituir as imagens no PDF.
-  5. Publique no GitHub/Render usando o README e informe os URLs.
-  6. Envie ao Moodle PDF atualizado e db.sqlite3.
-
-GITHUB:
-  Crie repositório vazio (sem README pela interface), por exemplo radar-tech-blog.
-  Na pasta extraida, rode:
-    git remote add origin https://github.com/SEU_USUARIO/radar-tech-blog.git
-    git push -u origin main
-    git push origin comments categories
-  Atenção: nao rode git init; o ZIP contem todo o historico Git.
-
-RENDER:
-  No painel Render, acesse Blueprints > New Blueprint Instance.
-  Selecione o repositorio criado no GitHub e aplique o render.yaml.
-  Render usara PostgreSQL (o banco SQLite e para o Moodle/localmente).
-  Apos receber a URL .onrender.com, acesse e confira as paginas.
-
-CREDENCIAIS LOCAIS:
-  O arquivo acesso_admin_local.txt esta separado. Nao o publique.
-  Para a implantacao publica, configure um admin com senha nova via
-  DEMO_ADMIN_USERNAME e DEMO_ADMIN_PASSWORD em variaveis privadas no Render;
-  apague a senha do painel depois que terminar os testes.
-
-SE HOUVER ERRO:
-  Envie o texto completo do erro, sem senhas ou tokens privados.
+Se aparecer erro ao publicar, envie a mensagem completa do erro sem credenciais.

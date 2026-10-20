@@ -1,2 +1,1 @@
-PREVIA ESTATICA: imagens geradas a partir de templates e dados reais SQLite; nao sao views servidas por Django.
-Para substitui-las por capturas de respostas reais, execute `python tools/capturar_telas.py --django` em ambiente com Django.
+CAPTURAS REAIS: HTML produzido por views Django via Django test Client autenticado, renderizado em Chromium/Chrome.
