@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .forms import PostForm, CommentForm
-from .models import Post, Comment
+from .models import Post, Comment, Category
 
 
 class PostListView(ListView):
@@ -66,3 +66,24 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse("post_detail", kwargs={"pk": self.post.pk})
+
+
+class CategoryListView(ListView):
+    model = Category
+    template_name = "blog/category_list.html"
+    context_object_name = "categories"
+
+
+class CategoryDetailView(ListView):
+    """Reaproveita o mesmo post_list.html para listar posts de uma categoria."""
+    template_name = "blog/post_list.html"
+    context_object_name = "posts"
+
+    def get_queryset(self):
+        self.category = get_object_or_404(Category, pk=self.kwargs["pk"])
+        return self.category.posts.all().order_by("-published_at")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["category"] = self.category
+        return context

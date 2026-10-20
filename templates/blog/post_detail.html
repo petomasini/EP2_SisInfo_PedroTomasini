@@ -6,6 +6,7 @@
     <div class="article-heading">
       <p class="eyebrow">PUBLICADO EM {{ post.published_at|date:'d/m/Y H:i' }}</p>
       <h1>{{ post.title }}</h1>
+      <div class="category-badges">{% for category in post.categories.all %}<a class="category-badge" href="{% url 'category_detail' category.pk %}">{{ category.name }}</a>{% endfor %}</div>
       <div class="article-actions"><a href="{% url 'post_update' post.pk %}">Editar post</a><a class="danger-link" href="{% url 'post_delete' post.pk %}">Remover post</a></div>
     </div>
     <div class="article-body">{{ post.content|safe }}</div>

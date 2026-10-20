@@ -8,6 +8,7 @@ class Post(models.Model):
     title = models.CharField("Título", max_length=200)
     content = models.TextField("Conteúdo HTML")
     published_at = models.DateTimeField("Data de publicação", default=timezone.now)
+    categories = models.ManyToManyField("Category", related_name="posts", blank=True, verbose_name="Categorias")
 
     class Meta:
         ordering = ["-published_at"]
@@ -39,3 +40,19 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"{self.author} em {self.post}"
+
+
+class Category(models.Model):
+    name = models.CharField("Nome", max_length=100, unique=True)
+    description = models.TextField("Descrição")
+
+    class Meta:
+        ordering = ["name"]
+        verbose_name = "Categoria"
+        verbose_name_plural = "Categorias"
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("category_detail", kwargs={"pk": self.pk})

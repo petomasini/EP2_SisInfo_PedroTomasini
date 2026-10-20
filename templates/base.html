@@ -14,7 +14,7 @@
       <a href="{% url 'post_list' %}" class="brand"><span class="brand-mark">R</span><span>RADAR<span class="brand-accent">TECH</span></span></a>
       <nav class="nav" aria-label="Navegação principal">
         <a href="{% url 'post_list' %}">Artigos</a>
-        <!-- O link de categorias e adicionado no branch categories -->
+        <a href="{% url 'category_list' %}">Categorias</a>
         <a href="{% url 'post_create' %}">Novo post</a>
         <a href="{% url 'admin:index' %}">Admin</a>
         {% if user.is_authenticated %}

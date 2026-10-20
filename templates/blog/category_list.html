@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Categorias{% endblock %}
+{% block content %}
+  <section class="hero"><p class="eyebrow">EXPLORE POR ASSUNTO</p><h1>Categorias</h1><p class="hero-summary">Encontre artigos pelos assuntos que mais interessam a você.</p></section>
+  <div class="section-heading"><h2>Todos os assuntos</h2><span>{{ categories|length }} categoria(s)</span></div>
+  <section class="category-grid" style="margin-top: 25px">
+    {% for category in categories %}
+      <article class="category-card"><h2><a href="{% url 'category_detail' category.pk %}">{{ category.name }} &rarr;</a></h2><p>{{ category.description }}</p><a class="read-link" href="{% url 'category_detail' category.pk %}">Ver artigos</a></article>
+    {% empty %}<p>Ainda não há categorias.</p>{% endfor %}
+  </section>
+{% endblock %}
