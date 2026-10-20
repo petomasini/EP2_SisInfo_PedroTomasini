@@ -16,13 +16,11 @@ ENTREGAR NO MOODLE
 
 GITHUB (etapa ainda pendente)
   1. No GitHub, crie um repositorio PUBLICO VAZIO, por exemplo radar-tech-blog.
-  2. Abra o terminal na pasta radar-tecnologia do ZIP atualizado.
-  3. Se o Git estiver instalado, rode os comandos a seguir, substituindo SEU_USUARIO:
-     git remote add origin https://github.com/SEU_USUARIO/radar-tech-blog.git
-     git push -u origin main
-     git push origin comments categories
-  4. Se 'origin' ja existir, use:
-     git remote set-url origin https://github.com/SEU_USUARIO/radar-tech-blog.git
+  2. Na pasta radar-tecnologia do ZIP atualizado, execute o arquivo:
+     PUBLICAR_NO_GITHUB_WINDOWS.bat
+  3. O programa abre a pagina GitHub. Crie o repositorio vazio, volte ao
+     terminal, cole a URL HTTPS e pressione ENTER. Ele envia os branches.
+  4. A autenticacao pode abrir uma janela do navegador.
   5. Nao rode 'git init' nem recrie os branches: o historico ja esta no ZIP.
 
 RENDER (etapa ainda pendente)

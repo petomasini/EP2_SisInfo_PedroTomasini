@@ -48,6 +48,8 @@ git branch -a
 
 ## Enviar para o GitHub (depois de criar um repositório **vazio**)
 
+No Windows, execute `PUBLICAR_NO_GITHUB_WINDOWS.bat`: ele abre a página de criação do repositório, solicita a URL HTTPS e envia os três branches. Caso prefira o terminal, os comandos equivalentes são:
+
 ```bash
 git remote add origin https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
 git push -u origin main
