@@ -1,0 +1,154 @@
+[
+  {
+    "id": 1,
+    "sql": "SELECT *\nFROM blog_post\nORDER BY published_at DESC;",
+    "columns": [
+      "id",
+      "title",
+      "content",
+      "published_at"
+    ],
+    "rows": [
+      [
+        1,
+        "IA generativa no cotidiano",
+        "<p>Ferramentas de inteligência artificial já fazem parte de tarefas como organizar ideias, estudar, programar e resumir documentos.</p>\n<h2>O que muda no dia a dia?</h2>\n<p>A velocidade aumenta, mas a revisão humana continua essencial. Respostas produzidas automaticamente podem conter erros e precisam ser verificadas.</p>\n<h2>Como começar com responsabilidade</h2>\n<ul><li>Defina claramente o objetivo.</li><li>Confira fatos importantes.</li><li>Não compartilhe dados sensíveis sem autorização.</li></ul>\n<p>O uso produtivo de IA combina experimentação, transparência e senso crítico.</p>",
+        "2026-10-18 18:00:00.000000"
+      ],
+      [
+        2,
+        "Segurança digital: hábitos que protegem",
+        "<p>A proteção de contas começa com decisões simples e consistentes. Senhas reutilizadas e links suspeitos continuam sendo riscos frequentes.</p>\n<h2>Checklist de proteção</h2>\n<ul><li>Use senhas únicas e extensas.</li><li>Ative autenticação de múltiplos fatores.</li><li>Mantenha aplicativos atualizados.</li></ul>\n<p>Também é importante revisar permissões de aplicativos e reconhecer tentativas de phishing.</p>",
+        "2026-10-16 17:30:00.000000"
+      ],
+      [
+        3,
+        "Como criar interfaces mais acessíveis",
+        "<p>Acessibilidade significa projetar para pessoas com necessidades, dispositivos e contextos diferentes.</p>\n<h2>Boas práticas</h2>\n<p>Use HTML semântico, rótulos claros para formulários, contraste adequado e navegação por teclado.</p>\n<p>Testar com usuários reais e tecnologias assistivas melhora a experiência de todos.</p>",
+        "2026-10-14 15:15:00.000000"
+      ]
+    ],
+    "total": 3
+  },
+  {
+    "id": 2,
+    "sql": "SELECT *\nFROM blog_comment\nWHERE post_id = 1\nORDER BY published_at DESC;",
+    "columns": [
+      "id",
+      "text",
+      "published_at",
+      "author_id",
+      "post_id"
+    ],
+    "rows": [
+      [
+        1,
+        "Ótimo resumo! A verificação das fontes faz toda a diferença.",
+        "2026-10-19 10:00:00.000000",
+        1,
+        1
+      ],
+      [
+        2,
+        "Gostei das recomendações para uso responsável.",
+        "2026-10-18 22:30:00.000000",
+        2,
+        1
+      ]
+    ],
+    "total": 2
+  },
+  {
+    "id": 3,
+    "sql": "SELECT c.id, c.author_id, c.text, c.published_at,\n       p.title, p.published_at AS post_date\nFROM blog_comment AS c\nINNER JOIN blog_post AS p ON p.id = c.post_id\nWHERE c.post_id = 1\nORDER BY c.published_at DESC;",
+    "columns": [
+      "id",
+      "author_id",
+      "text",
+      "published_at",
+      "title",
+      "post_date"
+    ],
+    "rows": [
+      [
+        1,
+        1,
+        "Ótimo resumo! A verificação das fontes faz toda a diferença.",
+        "2026-10-19 10:00:00.000000",
+        "IA generativa no cotidiano",
+        "2026-10-18 18:00:00.000000"
+      ],
+      [
+        2,
+        2,
+        "Gostei das recomendações para uso responsável.",
+        "2026-10-18 22:30:00.000000",
+        "IA generativa no cotidiano",
+        "2026-10-18 18:00:00.000000"
+      ]
+    ],
+    "total": 2
+  },
+  {
+    "id": 4,
+    "sql": "SELECT cat.*, p.*\nFROM blog_category AS cat\nINNER JOIN blog_post_categories AS pc ON pc.category_id = cat.id\nINNER JOIN blog_post AS p ON p.id = pc.post_id\nWHERE cat.id = 3\nORDER BY p.published_at DESC;",
+    "columns": [
+      "id",
+      "name",
+      "description",
+      "id",
+      "title",
+      "content",
+      "published_at"
+    ],
+    "rows": [
+      [
+        3,
+        "Desenvolvimento Web",
+        "Práticas modernas para construir experiências na web.",
+        1,
+        "IA generativa no cotidiano",
+        "<p>Ferramentas de inteligência artificial já fazem parte de tarefas como organizar ideias, estudar, programar e resumir documentos.</p>\n<h2>O que muda no dia a dia?</h2>\n<p>A velocidade aumenta, mas a revisão humana continua essencial. Respostas produzidas automaticamente podem conter erros e precisam ser verificadas.</p>\n<h2>Como começar com responsabilidade</h2>\n<ul><li>Defina claramente o objetivo.</li><li>Confira fatos importantes.</li><li>Não compartilhe dados sensíveis sem autorização.</li></ul>\n<p>O uso produtivo de IA combina experimentação, transparência e senso crítico.</p>",
+        "2026-10-18 18:00:00.000000"
+      ],
+      [
+        3,
+        "Desenvolvimento Web",
+        "Práticas modernas para construir experiências na web.",
+        2,
+        "Segurança digital: hábitos que protegem",
+        "<p>A proteção de contas começa com decisões simples e consistentes. Senhas reutilizadas e links suspeitos continuam sendo riscos frequentes.</p>\n<h2>Checklist de proteção</h2>\n<ul><li>Use senhas únicas e extensas.</li><li>Ative autenticação de múltiplos fatores.</li><li>Mantenha aplicativos atualizados.</li></ul>\n<p>Também é importante revisar permissões de aplicativos e reconhecer tentativas de phishing.</p>",
+        "2026-10-16 17:30:00.000000"
+      ],
+      [
+        3,
+        "Desenvolvimento Web",
+        "Práticas modernas para construir experiências na web.",
+        3,
+        "Como criar interfaces mais acessíveis",
+        "<p>Acessibilidade significa projetar para pessoas com necessidades, dispositivos e contextos diferentes.</p>\n<h2>Boas práticas</h2>\n<p>Use HTML semântico, rótulos claros para formulários, contraste adequado e navegação por teclado.</p>\n<p>Testar com usuários reais e tecnologias assistivas melhora a experiência de todos.</p>",
+        "2026-10-14 15:15:00.000000"
+      ]
+    ],
+    "total": 3
+  },
+  {
+    "id": 5,
+    "sql": "SELECT cat.id, cat.name, cat.description,\n       COUNT(DISTINCT pc.post_id) AS total_posts\nFROM blog_category AS cat\nINNER JOIN blog_post_categories AS pc ON pc.category_id = cat.id\nGROUP BY cat.id, cat.name, cat.description\nHAVING COUNT(DISTINCT pc.post_id) >= 2\nORDER BY total_posts DESC, cat.name;",
+    "columns": [
+      "id",
+      "name",
+      "description",
+      "total_posts"
+    ],
+    "rows": [
+      [
+        3,
+        "Desenvolvimento Web",
+        "Práticas modernas para construir experiências na web.",
+        3
+      ]
+    ],
+    "total": 1
+  }
+]
