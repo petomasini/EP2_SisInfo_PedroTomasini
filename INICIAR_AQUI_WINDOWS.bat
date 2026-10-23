@@ -34,7 +34,7 @@ python manage.py test
 if errorlevel 1 goto falha
 python tools\capturar_telas.py --django
 if errorlevel 1 goto falha
-rem Facilitar o envio: gera um unico ZIP com as capturas para anexar ao ChatGPT.
+rem Facilitar o envio: gera um unico ZIP com as capturas
 powershell -NoProfile -Command "Compress-Archive -Path 'docs\capturas\*' -DestinationPath 'CAPTURAS_PARA_RELATORIO.zip' -Force"
 if errorlevel 1 (
   echo As imagens foram geradas, mas nao foi possivel criar o ZIP automatico.
@@ -44,12 +44,11 @@ if errorlevel 1 (
 )
  echo.
  echo SUCESSO. TESTES APROVADOS E PRINTS REAIS GERADOS EM docs\capturas.
- echo Envie o CAPTURAS_PARA_RELATORIO.zip para atualizar o PDF.
  echo O administrador local usa as credenciais de acesso_admin_local.txt.
  pause
  exit /b 0
 :falha
  echo.
- echo FALHOU ALGUMA ETAPA. Copie a mensagem de erro e envie ao ChatGPT para correcao.
+ echo FALHOU ALGUMA ETAPA.
  pause
  exit /b 1
