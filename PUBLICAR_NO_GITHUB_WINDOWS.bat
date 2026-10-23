@@ -60,7 +60,7 @@ exit /b 0
 
 :erro
 echo.
-echo ERRO na publicacao. Copie a mensagem acima e envie ao ChatGPT.
+echo ERRO na publicacao.
 echo Nao compartilhe senhas nem tokens.
 pause
 exit /b 1
